@@ -1,3 +1,7 @@
-## 1.0.0
+## 0.1.0
 
-- Initial version.
+Initial version.
+
+We implemented:
+
+- `BinarySize` class, to convert bytes to human readable format
