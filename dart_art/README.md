@@ -1,39 +1,48 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+![banner](https://raw.githubusercontent.com/Dynesshely/DartArt/main/art/banner.png)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+# Overview
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+`DartArt` is a collection of useful dart utils for all dart developers.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# Features
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- `BinarySize` class, to convert bytes to human readable format
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+1. Add the dependency to your `pubspec.yaml` file  
+   Recommend to use command line:
 
-```dart
-const like = 'sample';
-```
+   With Flutter
+   ```shell
+   flutter pub add dart_art
+   ```
 
-## Additional information
+   With Dart
+   ```shell
+   dart pub add dart_art
+   ```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+2. Import library
+
+   ```dart
+   import 'package:dart_art/dart_art.dart';
+   ```
+
+3. Use like examples
+
+   `BinarySize`:
+
+   ```dart
+   var size = BinarySize()..bytesCount = 1024;
+
+   print(size.displayText); // 1.00 KB
+   ```
+
+# Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=Dynesshely/DartArt)](https://github.com/Dynesshely/DartArt/graphs/contributors)
+
+# Star History
+
+[![Star History Chart](https://starchart.cc/Dynesshely/DartArt.svg?variant=adaptive)](https://starchart.cc/Dynesshely/DartArt)
