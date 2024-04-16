@@ -1,14 +1,10 @@
 name: dart_art
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: Experience Dart’s coding aesthetics here, which contains lots of useful utils.
+version: 0.1.0
+repository: https://github.com/Dynesshely/DartArt
 
 environment:
   sdk: ^3.3.3
-
-# Add regular dependencies here.
-dependencies:
-  # path: ^1.8.0
 
 dev_dependencies:
   lints: ^3.0.0
