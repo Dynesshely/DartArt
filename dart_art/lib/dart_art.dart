@@ -1,8 +1,4 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+/// A lot of useful tools for Dart developers.
 library;
 
-export 'src/dart_art_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'package:dart_art/units/binary_size.dart';
