@@ -5,7 +5,9 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pub" # See documentation for possible values
-    directory: "/dart_art/" # Location of package manifests
+  - package-ecosystem: "pub"
+    directories:
+      - "/dart_art/"
+      - "/flutter_zofo/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
