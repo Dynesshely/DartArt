@@ -1,5 +1,8 @@
-﻿import 'package:dart_art/extensions/datetime/timestamp.dart';
+// Package imports:
 import 'package:test/test.dart';
+
+// Project imports:
+import 'package:dart_art/extensions/datetime/timestamp.dart';
 
 void timestampGrowingTest({bool inCsvFormat = false, bool inTest = true}) {
   if (!inCsvFormat && !inTest) {

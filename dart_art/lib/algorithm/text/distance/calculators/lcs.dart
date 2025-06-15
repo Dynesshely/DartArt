@@ -1,8 +1,10 @@
+// Dart imports:
+import 'dart:math';
+
+// Project imports:
 import 'package:dart_art/algorithm/text/distance/calculation_options.dart';
 import 'package:dart_art/algorithm/text/distance/distance_calculator.dart';
 import 'package:dart_art/algorithm/text/distance/distance_info.dart';
-
-import 'dart:math';
 
 class LCS extends IDistanceCalculator {
   late int width;

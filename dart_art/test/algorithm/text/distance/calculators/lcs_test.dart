@@ -1,6 +1,9 @@
-﻿import 'package:dart_art/algorithm/text/distance/calculators/lcs.dart';
-import 'package:dart_art/test/assertable_map.dart';
+// Package imports:
 import 'package:test/test.dart';
+
+// Project imports:
+import 'package:dart_art/algorithm/text/distance/calculators/lcs.dart';
+import 'package:dart_art/test/assertable_map.dart';
 
 void main() {
   group('A set of tests for LCS algorithm', () {

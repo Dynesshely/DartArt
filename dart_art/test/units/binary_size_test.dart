@@ -1,5 +1,8 @@
-﻿import 'package:dart_art/units/binary_size.dart';
+// Package imports:
 import 'package:test/test.dart';
+
+// Project imports:
+import 'package:dart_art/units/binary_size.dart';
 
 void binarySizeCalculationTest() {
   var counts = [344, 1458, 16283, 242021, 3423423, 38321892, 342342342, 3423423423];

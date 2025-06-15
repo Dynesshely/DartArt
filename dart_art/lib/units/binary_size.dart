@@ -1,5 +1,7 @@
-﻿import 'dart:math';
+// Dart imports:
+import 'dart:math';
 
+// Project imports:
 import 'package:dart_art/units/standards/binary_size_convention_standard.dart';
 
 class BinarySize {
