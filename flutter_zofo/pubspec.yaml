@@ -16,7 +16,7 @@ dependencies:
   connectivity_plus: ^6.1.4
   crypto: ^3.0.6
   dart_art: ^0.1.2
-  device_info_plus: ^11.4.0
+  device_info_plus: ">=11.4.0 <13.0.0"
   drift: ^2.25.1
   expansion_tile_group: ^2.2.0
   faker: ^2.2.0
