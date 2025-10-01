@@ -29,7 +29,7 @@ dependencies:
   flutter_typeahead: ^5.2.0
   get: ^4.7.2
   intl: ^0.20.2
-  network_info_plus: ^6.1.4
+  network_info_plus: ">=6.1.4 <8.0.0"
   package_info_plus: ^8.3.0
   path: ^1.9.1
   path_provider: ^2.1.5
