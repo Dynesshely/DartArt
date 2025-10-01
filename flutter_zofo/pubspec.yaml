@@ -13,7 +13,7 @@ dependencies:
   cherrilog: ^0.3.1
   community_material_icon: ^5.9.55
   concentric_transition: ^1.0.3
-  connectivity_plus: ^6.1.4
+  connectivity_plus: ">=6.1.4 <8.0.0"
   crypto: ^3.0.6
   dart_art: ^0.1.2
   device_info_plus: ^11.4.0
