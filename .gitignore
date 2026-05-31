@@ -1,2 +1,5 @@
 ﻿## Visual Studio Code settings
 .vscode/
+
+## Claude Code settings
+.claude/
