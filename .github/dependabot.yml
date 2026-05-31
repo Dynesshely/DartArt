@@ -8,6 +8,5 @@ updates:
   - package-ecosystem: "pub"
     directories:
       - "/dart_art/"
-      - "/flutter_zofo/"
     schedule:
       interval: "monthly"
