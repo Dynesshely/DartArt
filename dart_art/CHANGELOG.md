@@ -1,3 +1,8 @@
+## 0.2.1
+
+- **Docs**: Updated example file with runnable samples covering all 11 modules.
+- **Docs**: Removed stale `(unreleased)` marker from the 0.2.0 CHANGELOG entry.
+
 ## 0.2.0
 
 ### Extensions

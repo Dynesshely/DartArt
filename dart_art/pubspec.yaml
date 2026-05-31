@@ -1,6 +1,6 @@
 name: dart_art
 description: Experience Dart’s coding aesthetics here, which contains lots of useful utils.
-version: 0.2.0
+version: 0.2.1
 repository: https://github.com/Dynesshely/DartArt
 
 environment:
