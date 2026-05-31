@@ -2,25 +2,25 @@
   "folders": [
     {
       "name": "Root",
-      "path": "."
+      "path": ".",
     },
     {
       "name": "Dart Art",
-      "path": "dart_art"
+      "path": "dart_art",
     },
     {
       "name": "Flutter Zofo",
-      "path": "flutter_zofo"
+      "path": "flutter_zofo",
     },
     {
       "name": "Flutter Zofo Test",
-      "path": "flutter_zofo_test"
-    }
+      "path": "flutter_zofo_test",
+    },
   ],
   "settings": {
     "git.autorefresh": true,
     "[dart]": {
-      "editor.rulers": [200]
-    }
-  }
+      "editor.rulers": [200],
+    },
+  },
 }
