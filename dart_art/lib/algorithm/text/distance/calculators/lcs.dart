@@ -6,8 +6,29 @@ import 'package:dart_art/algorithm/text/distance/calculation_options.dart';
 import 'package:dart_art/algorithm/text/distance/distance_calculator.dart';
 import 'package:dart_art/algorithm/text/distance/distance_info.dart';
 
+/// Computes the Longest Common Subsequence (LCS) distance between two strings.
+///
+/// The LCS algorithm finds all sub-sequences that appear in both input strings
+/// in the same order (but not necessarily contiguously). The length of the
+/// longest such sub-sequence is reported as the [DistanceInfo.distance].
+///
+/// This implementation uses a dynamic programming approach with an `O(m × n)`
+/// matrix, with backtracking to enumerate all longest common sub-sequences.
+///
+/// ```dart
+/// final lcs = LCS();
+/// final info = lcs.getDistanceInfo(['ABCBDAB', 'BDCABA']);
+/// print(info.distance); // 4
+/// print(info.lcsInfo!.lcsMatchedSubSequences); // {4: ['BCBA', 'BDAB']}
+/// ```
+///
+/// **Requirements:** Exactly two input strings must be provided. An
+/// [ArgumentError] is thrown otherwise.
 class LCS extends IDistanceCalculator {
+  /// The length of the longer input string. Set during computation.
   late int width;
+
+  /// The length of the shorter input string. Set during computation.
   late int height;
 
   @override
@@ -28,6 +49,11 @@ class LCS extends IDistanceCalculator {
       ..lcsInfo = result;
   }
 
+  /// Computes the raw LCS information for the two strings [a] and [b].
+  ///
+  /// Returns an [LcsInfo] containing the matched sub-sequences keyed by
+  /// their length. Only the longest sub-sequences are included (those whose
+  /// length equals the first result found).
   LcsInfo getLcsInfo(String a, String b) {
     width = max(a.length, b.length);
     height = min(a.length, b.length);

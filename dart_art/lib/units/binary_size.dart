@@ -4,11 +4,52 @@ import 'dart:math';
 // Project imports:
 import 'package:dart_art/units/standards/binary_size_convention_standard.dart';
 
+/// Represents a data size in bytes and provides human-readable formatting.
+///
+/// [BinarySize] converts raw byte counts into formatted strings like "1.00 KiB"
+/// and can parse such strings back into byte values.
+///
+/// Three byte-size standards are supported via [standard]:
+/// - [BinarySizeIecStandard] (default): binary prefixes (KiB, MiB, GiB, …),
+///   where 1 KiB = 1024 B.
+/// - [BinarySizeJedecStandard]: binary values with SI-named units (KB, MB, GB, …),
+///   where 1 KB = 1024 B.
+/// - [BinarySizeSiStandard]: decimal prefixes (kB, MB, GB, …),
+///   where 1 kB = 1000 B.
+///
+/// Arithmetic and comparison operators are overloaded on [bytesCount], using
+/// [BigInt] to avoid precision loss.
+///
+/// ```dart
+/// final size = BinarySize()..bytesCount = BigInt.from(1536);
+/// print(size.displayText); // "1.50 KiB" (with default IEC standard)
+///
+/// // Parse a human-readable string back.
+/// final parsed = BinarySize.parse('3.25 GiB');
+/// print(parsed!.bytesCount); // BigInt 3489660928
+/// ```
 class BinarySize {
+  /// The byte-size convention standard used for formatting and parsing.
+  ///
+  /// Defaults to [BinarySizeIecStandard].
   late BinarySizeConventionStandard standard = BinarySizeIecStandard();
 
+  /// The raw byte count represented by this [BinarySize].
+  ///
+  /// Defaults to `BigInt.from(0)`.
   late BigInt bytesCount = BigInt.from(0);
 
+  /// A human-readable representation of this byte size.
+  ///
+  /// The format depends on the active [standard]:
+  ///
+  /// | Standard | Example         |
+  /// |----------|-----------------|
+  /// | IEC      | 1.00 KiB        |
+  /// | JEDEC    | 1.00 KB         |
+  /// | SI       | 1.00 kB         |
+  ///
+  /// Units range from B (bytes) through ZiB / ZB (zebibytes).
   String get displayText => (() {
         var lvB = BigInt.from(1);
         var lvKB = lvB * standard.getLevelBase();
@@ -38,10 +79,26 @@ class BinarySize {
         return '${(bytesCount / lvZB).toStringAsFixed(2)} Z${iecIdentity}B';
       })();
 
-  /// Parse a text into a [BinarySize] object
-  /// When unit contains 'i', it will be considered as IEC standard
-  /// When unit contains no 'i', we will use [fallbackStandard] to determine the standard
-  /// [fallbackStandard] in default is [BinarySizeSiStandard]
+  /// Parses a human-readable size string into a [BinarySize] object.
+  ///
+  /// The string may contain an integer part, an optional fractional part, and
+  /// a unit suffix. Examples of valid inputs:
+  /// - `"344 B"`
+  /// - `"1.00 KiB"`
+  /// - `"3.25 GiB"`
+  /// - `"7.5 MB"`
+  ///
+  /// **Standard detection:**
+  /// - If the unit contains an `i` (e.g. KiB, MiB), the IEC standard is used.
+  /// - Otherwise, [fallbackStandard] is used (defaults to [BinarySizeSiStandard]).
+  ///
+  /// Returns `null` if the input string does not match the expected format.
+  ///
+  /// ```dart
+  /// final size = BinarySize.parse('3.25 GiB');
+  /// print(size?.bytesCount);  // BigInt 3489660928
+  /// print(size?.displayText); // "3.25 GiB"
+  /// ```
   static BinarySize? parse(String size, {BinarySizeConventionStandard? fallbackStandard}) {
     BinarySize? result;
 
@@ -113,19 +170,31 @@ class BinarySize {
     return result;
   }
 
+  /// Returns a new [BinarySize] whose [bytesCount] is the sum of this and
+  /// [other]'s byte counts.
   BinarySize operator +(BinarySize other) => BinarySize()..bytesCount = bytesCount + other.bytesCount;
 
+  /// Returns a new [BinarySize] whose [bytesCount] is the difference between
+  /// this and [other]'s byte counts.
   BinarySize operator -(BinarySize other) => BinarySize()..bytesCount = bytesCount - other.bytesCount;
 
+  /// Returns a new [BinarySize] whose [bytesCount] is the product of this and
+  /// [other]'s byte counts.
   BinarySize operator *(BinarySize other) => BinarySize()..bytesCount = bytesCount * other.bytesCount;
 
+  /// Returns the ratio of this [bytesCount] to [other]'s [bytesCount] as a
+  /// [double].
   double operator /(BinarySize other) => bytesCount / other.bytesCount;
 
+  /// Whether this [bytesCount] is strictly less than [other]'s.
   bool operator <(BinarySize other) => bytesCount < other.bytesCount;
 
+  /// Whether this [bytesCount] is less than or equal to [other]'s.
   bool operator <=(BinarySize other) => bytesCount <= other.bytesCount;
 
+  /// Whether this [bytesCount] is strictly greater than [other]'s.
   bool operator >(BinarySize other) => bytesCount > other.bytesCount;
 
+  /// Whether this [bytesCount] is greater than or equal to [other]'s.
   bool operator >=(BinarySize other) => bytesCount >= other.bytesCount;
 }
