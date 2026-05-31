@@ -1,20 +1,7 @@
 {
   "folders": [
     {
-      "name": "Root",
       "path": ".",
-    },
-    {
-      "name": "Dart Art",
-      "path": "dart_art",
-    },
-    {
-      "name": "Flutter Zofo",
-      "path": "flutter_zofo",
-    },
-    {
-      "name": "Flutter Zofo Test",
-      "path": "flutter_zofo_test",
     },
   ],
   "settings": {
